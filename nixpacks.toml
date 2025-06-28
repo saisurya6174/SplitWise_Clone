@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python311", "gcc", "libpq"]
+
+[phases.install]
+cmds = ["pip install --upgrade pip", "pip install -r backend/requirements.txt"]
+
+[phases.start]
+cmd = "gunicorn backend.app:app -b 0.0.0.0:$PORT"
